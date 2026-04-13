@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "Charon";
+  font-style: normal;
+  font-weight: 500;
+  src: url("./fonts/IosevkaCharon-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Charon";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./fonts/IosevkaCharon-Bold.ttf") format("truetype");
+}
