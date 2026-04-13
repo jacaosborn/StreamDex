@@ -1,0 +1,7 @@
+.navbar {
+  display: flex;
+  gap: 1rem;
+}
+.navbar__link {
+  /* styles coming soon */
+}

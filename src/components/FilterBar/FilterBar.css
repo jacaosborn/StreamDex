@@ -1,0 +1,42 @@
+.filter-bar {
+  display: flex;
+  align-items: center;
+  font-family: "Charon", Arial, sans-serif;
+  margin: 0 5px 5px 5px;
+  font-size: 20px;
+}
+.filter-bar__text {
+  margin: 0 5px inherit 5px;
+}
+.filter-bar__button {
+  width: fit-content;
+  min-width: 125px;
+  cursor: pointer;
+  border: solid 1px;
+  padding: 2px 4px;
+  text-align: center;
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2px 5px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+}
+.filter-bar__button_gp {
+  border-color: #56b459;
+  color: #56b459;
+  background-color: #15323140;
+}
+.filter-bar__button_ps {
+  border-color: #3baaf3;
+  color: #3baaf3;
+  background-color: #132e5640;
+}
+/* add feature later */
+/* .filter-bar__button_ea {
+  border-color: #f33b3b;
+  color: #f33b3b;
+  background-color: #56131340;
+} */
