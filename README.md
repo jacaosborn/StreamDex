@@ -10,6 +10,12 @@ Gamesub Scout uses Javascrip, React, Vite, HTML, and CSS along with an API from 
 
 ## GitHub Page
 
+https://jacaosborn.github.io/StreamDex/
+
+## Project Video
+
+https://www.loom.com/share/5d97e127c809456e98a03dd99e290d3e
+
 ## Planned additions
 
 I will be adding filtering to only show games on subscriptions that you want to see (design structure for this is in place, just need to add functionality), and will be adding functionality for additional game services apart from the two major ones that are currently supported.
