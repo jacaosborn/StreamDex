@@ -5,17 +5,26 @@ import Preloader from "../Preloader/Preloader";
 import "./main.css";
 
 function Main({ fetchBrowsePage }) {
+  const [activeFilters, setActiveFilters] = useState([]);
   const [psExGames, setPsExGames] = useState([]);
   const [psPremGames, setPsPremGames] = useState([]);
   const [gpGames, setGpGames] = useState([]);
+  // add later
+  // const [eaPlGames, setEaPlayGames] = useState([]);
   const [errors, setErrors] = useState({
     psEx: false,
     psPrem: false,
     gp: false,
   });
   const [cardsCount, setCardsCount] = useState(3);
-  // add later
-  // const [eaPlGames, setEaPlayGames] = useState([]);
+
+  const toggleFilter = (filter) => {
+    setActiveFilters((prev) =>
+      prev.includes(filter)
+        ? prev.filter((f) => f !== filter)
+        : [...prev, filter],
+    );
+  };
 
   useEffect(() => {
     Promise.all([
@@ -35,9 +44,15 @@ function Main({ fetchBrowsePage }) {
         return [];
       }),
     ]).then(([psEx, psPrem, gp]) => {
-      setPsExGames(psEx);
-      setPsPremGames(psPrem);
-      setGpGames(gp);
+      const taggedPsEx = psEx.map((g) => ({ ...g, platforms: ["ps-ex"] }));
+      const taggedPsPrem = psPrem.map((g) => ({
+        ...g,
+        platforms: ["ps-prem"],
+      }));
+      const taggedGp = gp.map((g) => ({ ...g, platforms: ["gp"] }));
+      setPsExGames(taggedPsEx);
+      setPsPremGames(taggedPsPrem);
+      setGpGames(taggedGp);
     });
   }, []);
   // ea play - add later
@@ -54,22 +69,39 @@ function Main({ fetchBrowsePage }) {
   const normalizeName = (name) => name.toLowerCase().replace(/[^a-z0-9]/g, "");
   const allGames = [...psExGames, ...psPremGames, ...gpGames];
   // add key value to each game to id which sub it's on. also make sure that when filtering the game retains all subs
-  const uniqueGames = [
-    ...new Map(allGames.map((g) => [normalizeName(g.name), g])).values(),
-  ];
+  const uniqueGames = Object.values(
+    allGames.reduce((acc, g) => {
+      const key = normalizeName(g.name);
+      if (acc[key]) {
+        acc[key] = {
+          ...acc[key],
+          platforms: [...acc[key].platforms, ...g.platforms],
+        };
+      } else {
+        acc[key] = { ...g };
+      }
+      return acc;
+    }, {}),
+  );
+  const filteredGames =
+    activeFilters.length === 0
+      ? uniqueGames
+      : uniqueGames.filter((g) =>
+          activeFilters.some((f) => g.platforms.includes(f)),
+        );
   console.log(uniqueGames);
 
   return (
     <div className="main">
-      <FilterBar />
+      <FilterBar activeFilters={activeFilters} toggleFilter={toggleFilter} />
       <section className="main__cards">
         {uniqueGames.length === 0 && <Preloader />}
         <ul className="main__cards-list">
-          {uniqueGames.slice(0, cardsCount).map((game) => (
+          {filteredGames.slice(0, cardsCount).map((game) => (
             <GameCard key={game.id} game={game} />
           ))}
         </ul>
-        {cardsCount < uniqueGames.length && (
+        {cardsCount < filteredGames.length && (
           <button
             className="main__load-more"
             onClick={() => setCardsCount((prev) => prev + 3)}

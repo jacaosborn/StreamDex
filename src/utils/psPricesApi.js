@@ -1,5 +1,8 @@
 const apiKey = "81240253-d2fb-4ede-812d-30d0838d5391";
-const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:3001";
+const baseUrl =
+  import.meta.env.VITE_API_URL ||
+  "https://streamdexbackend.onrender.com/api/games?";
+
 const region = "us";
 
 const handleServerResponse = (res) =>

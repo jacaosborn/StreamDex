@@ -34,6 +34,16 @@
   color: #3baaf3;
   background-color: #132e5640;
 }
+.filter-bar__button_active_ps {
+  border-color: #3baaf3;
+  color: #242424;
+  background-color: #3baaf3;
+}
+.filter-bar__button_active_gp {
+  border-color: #56b459;
+  color: #242424;
+  background-color: #56b459;
+}
 /* add feature later */
 /* .filter-bar__button_ea {
   border-color: #f33b3b;
