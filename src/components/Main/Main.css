@@ -18,6 +18,21 @@
   gap: 16px;
   list-style: none;
   padding: 0;
+  width: 100%;
+}
+
+@media (max-width: 780px) {
+  .main__cards-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  .main__cards-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
 }
 
 .main__error-message {
@@ -42,7 +57,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 2px 5px;
+  margin: 20px 5px;
   border-radius: 10px;
   font-size: 15px;
   font-weight: 600;

@@ -5,25 +5,19 @@ const baseUrl =
 
 const region = "us";
 
-const handleServerResponse = (res) =>
-  res.ok ? res.json() : Promise.reject(res.status);
-
-async function fetchGames(params = {}) {
+function fetchBrowsePage(collection) {
   const query = new URLSearchParams({
     region: region,
     name_locale: "en",
     exclude_free: "false",
-    ...params,
+    collection,
   });
-  const res = await fetch(`${baseUrl}/api/games?${query}`, {
+  return fetch(`${baseUrl}${query}`, {
     headers: { "X-API-Key": apiKey },
-  });
-  if (!res.ok) throw new Error(`API error: ${res.status}`);
-  return res.json();
-}
-async function fetchBrowsePage(collection) {
-  const data = await fetchGames({ collection });
-  return data.data || [];
+  })
+    .then((res) => res.json())
+    .then((data) => data.data || [])
+    .catch((err) => Promise.reject(err));
 }
 
 export default fetchBrowsePage;

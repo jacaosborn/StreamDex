@@ -96,11 +96,11 @@ function Main({ fetchBrowsePage }) {
       <FilterBar activeFilters={activeFilters} toggleFilter={toggleFilter} />
       <section className="main__cards">
         {uniqueGames.length === 0 && <Preloader />}
-        <ul className="main__cards-list">
+        <div className="main__cards-list">
           {filteredGames.slice(0, cardsCount).map((game) => (
             <GameCard key={game.id} game={game} />
           ))}
-        </ul>
+        </div>
         {cardsCount < filteredGames.length && (
           <button
             className="main__load-more"

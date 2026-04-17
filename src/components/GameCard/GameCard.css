@@ -77,3 +77,21 @@
 .game-card__platform-tag_hidden {
   display: none;
 }
+
+@media (max-width: 420px) {
+  .game-card {
+    height: auto;
+    min-height: 140px;
+  }
+
+  .game-card__title {
+    font-size: 10px;
+  }
+
+  .game-card__platform-tag {
+    font-size: 9px;
+    min-width: 0;
+    width: auto;
+    padding: 2px 5px;
+  }
+}
