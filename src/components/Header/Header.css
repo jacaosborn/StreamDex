@@ -1,0 +1,59 @@
+.header {
+  font-family: "Charon", Arial, sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  width: 100%;
+  max-width: 1360px;
+  padding: 32px 16px 28px;
+}
+
+.header__logo {
+  width: 150px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.header__subheading {
+  font-size: 15px;
+  text-align: center;
+  flex: 1;
+  padding: 0 16px;
+}
+
+@media (max-width: 780px) {
+  .header {
+    font-size: 16px;
+    padding: 20px 16px;
+  }
+
+  .header__logo {
+    width: 120px;
+  }
+
+  .header__subheading {
+    font-size: 13px;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 420px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .header__logo {
+    width: 130px;
+  }
+
+  .header__subheading {
+    display: none;
+  }
+}
