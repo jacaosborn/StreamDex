@@ -12,7 +12,7 @@
 }
 
 .navbar__link {
-  /* styles coming soon */
+  font-size: 20px;
 }
 
 /* hamburger button — hidden on desktop */
@@ -35,7 +35,9 @@
   height: 2px;
   background-color: currentColor;
   border-radius: 2px;
-  transition: transform 0.25s ease, opacity 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
 }
 
 /* animate to X when open */

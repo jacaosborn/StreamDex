@@ -2,6 +2,7 @@
   font-family: "Charon", Arial, sans-serif;
   display: flex;
   justify-content: space-between;
+
   align-items: center;
   font-weight: 700;
   font-size: 20px;
@@ -18,10 +19,9 @@
 }
 
 .header__subheading {
-  font-size: 15px;
-  text-align: center;
-  flex: 1;
-  padding: 0 16px;
+  font-size: 20px;
+  margin-right: 16px;
+  white-space: nowrap;
 }
 
 @media (max-width: 780px) {
@@ -36,7 +36,6 @@
 
   .header__subheading {
     font-size: 13px;
-    padding: 0 10px;
   }
 }
 
