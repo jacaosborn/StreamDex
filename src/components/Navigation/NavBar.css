@@ -13,6 +13,11 @@
 
 .navbar__link {
   font-size: 20px;
+  text-decoration: none;
+  color: inherit;
+}
+.navbar__link:visited {
+  color: gray;
 }
 
 /* hamburger button — hidden on desktop */
