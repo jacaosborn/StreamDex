@@ -11,7 +11,7 @@
 }
 .filter-bar__button {
   flex-shrink: 1;
-  min-width: 0;
+  min-width: 70px;
   cursor: pointer;
   border: solid 1px;
   padding: 2px 4px;
@@ -23,6 +23,32 @@
   border-radius: 10px;
   font-size: 0.75em;
   font-weight: 600;
+  position: relative;
+  overflow: visible;
+}
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1a1a1a;
+  color: white;
+  border: 1px solid #3baaf3;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 0.85em;
+  font-weight: 400;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 10;
+}
+[data-tooltip]:hover::after {
+  opacity: 1;
+}
+.filter-bar__button_gp[data-tooltip]::after {
+  border-color: #56b459;
 }
 .filter-bar__button_gp {
   border-color: #56b459;
@@ -44,6 +70,34 @@
   color: #242424;
   background-color: #56b459;
 }
+.filter-bar__button_ea {
+  border-color: #f33b3b;
+  color: #f33b3b;
+  background-color: #56131340;
+}
+.filter-bar__button_active_ea {
+  border-color: #f33b3b;
+  color: #242424;
+  background-color: #f33b3b;
+}
+
+.filter-bar__sort {
+  margin-left: auto;
+  cursor: pointer;
+  border: solid 1px white;
+  padding: 2px 4px;
+  border-radius: 10px;
+  font-size: 0.75em;
+  font-weight: 600;
+  font-family: "Charon", Arial, sans-serif;
+  background-color: transparent;
+  color: white;
+}
+.filter-bar__sort-option {
+  cursor: pointer;
+  background-color: #242424;
+  color: white;
+}
 @media (max-width: 780px) {
   .filter-bar {
     font-size: 16px;
@@ -61,10 +115,3 @@
     font-size: 11px;
   }
 }
-
-/* add feature later */
-/* .filter-bar__button_ea {
-  border-color: #f33b3b;
-  color: #f33b3b;
-  background-color: #56131340;
-} */

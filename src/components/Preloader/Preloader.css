@@ -1,26 +1,22 @@
 .preloader {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 16px;
   font-family: "Charon", Arial, sans-serif;
-  margin: 0 5px 5px 5px;
+  margin: 40px 5px;
   font-size: 20px;
   color: white;
 }
 
 .preloader__circle {
-  display: block;
   width: 50px;
   height: 50px;
-  border: 4px solid #ffffff;
-  border-bottom-color: #ffffff;
+  border: 4px solid #3baaf3;
+  border-bottom-color: #f33b3b;
+  border-top-color: #56b459;
   border-radius: 50%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
   animation: spin 0.75s infinite linear;
 }
 

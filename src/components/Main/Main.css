@@ -50,7 +50,7 @@
   width: fit-content;
   min-width: 125px;
   cursor: pointer;
-  border: solid 1px;
+
   padding: 2px 4px;
   text-align: center;
   justify-self: center;
@@ -59,6 +59,11 @@
   justify-content: center;
   margin: 20px 5px;
   border-radius: 10px;
+  border: none;
+  background:
+    linear-gradient(#242424, #242424) padding-box,
+    linear-gradient(to right, #56b459, #3baaf3) border-box;
+  border: 2px solid transparent;
   font-size: 15px;
   font-weight: 600;
   line-height: 2rem;
